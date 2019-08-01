@@ -11,7 +11,7 @@ app = Flask(__name__)
 @app.route('/api', methods=['POST'])
 def make_predict():
     # get data from post (4 features)
-    data = request.get_json(force=True)
+    # data = request.get_json(force=True)
     # # transforms
 
     # #
@@ -28,7 +28,7 @@ def make_predict():
     # # send preds back
     # output = {'y_hat': int(y_hat[0])}
     # return jsonify(results=output)
-    return jsonify(results=request)
+    return request
 
 if __name__ == '__main__':
     app.run(port=9000, debug=True)
