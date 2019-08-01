@@ -1,0 +1,1 @@
+web: gunicorn airbnb_model_app:app
