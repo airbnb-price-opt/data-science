@@ -29,7 +29,7 @@ def make_predict():
     # output = {'y_hat': int(y_hat[0])}
     # return jsonify(results=output)
     print("H E R E")
-    print(data.number_of_reviews)
+    print(data["number_of_reviews"])
     return jsonify(results=data)
 
 if __name__ == '__main__':
