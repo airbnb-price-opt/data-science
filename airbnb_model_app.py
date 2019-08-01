@@ -17,20 +17,22 @@ def make_predict():
     # #
     # # change the columns ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     # #
-    # predict_request = [data['room_type'], data['number_of_reviews'], data['calculated_host_listings_count'], \
-    #     data['availability_365'],data['distance'], data['cancellation_policy'], data['size'], data['amenities_num'], \
-    #         data['host_identity_verified'], data['security_deposit'], data['cleaning_fee'], \
-    #              data['guests_included'],data['extra_people'], data['review_scores_rating'], data['bathrooms'], \
-    #                  data['bedrooms'], data['beds'], data['bed_type'], data['accommodates']]
-    # predict_request = np.array(predict_request).reshape(1, -1)
+    predict_request = [data['room_type'], data['number_of_reviews'], data['calculated_host_listings_count'], \
+        data['availability_365'],data['distance'], data['cancellation_policy'], data['size'], data['amenities_num'], \
+            data['host_identity_verified'], data['security_deposit'], data['cleaning_fee'], \
+                 data['guests_included'],data['extra_people'], data['review_scores_rating'], data['bathrooms'], \
+                     data['bedrooms'], data['beds'], data['bed_type'], data['accommodates']]
+    predict_request = np.array(predict_request).reshape(1, -1)
     # # make predictions
-    # y_hat = my_model.predict(predict_request)
+    y_hat = my_model.predict(predict_request)
     # # send preds back
-    # output = {'y_hat': int(y_hat[0])}
-    # return jsonify(results=output)
-    print("H E R E")
-    print(data["number_of_reviews"])
-    return jsonify(results=data)
+    output = {'y_hat': int(y_hat[0])}
+    return jsonify(results=output)
+    # print("H E R E")
+    # print(data["number_of_reviews"])
+
+     
+    # return jsonify(results=data)
 
 if __name__ == '__main__':
     app.run(port=9000, debug=True)
