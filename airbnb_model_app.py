@@ -28,7 +28,8 @@ def make_predict():
     # # send preds back
     # output = {'y_hat': int(y_hat[0])}
     # return jsonify(results=output)
-    return request
+    
+    return jsonify(request)
 
 if __name__ == '__main__':
     app.run(port=9000, debug=True)
